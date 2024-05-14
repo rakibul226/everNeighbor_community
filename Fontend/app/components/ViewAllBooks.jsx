@@ -51,7 +51,7 @@ const ViewAllBooks = ({ allbook }) => {
                         <div className="pt-4">
                             <h2 className="card-title">{name}</h2>
                             <p>Author: {author}</p>
-                            <p className="mt-2">category: {category}</p>
+                            <p className="mt-2">category: {category}</p>                
                             <p className='pt-5 ml-10 font-bold text-3xl'>${price}</p>
                         <div className="card-actions justify-end">
                         <button onClick={borrowBook} className="btn bg-gray-600 hover:bg-gray-700  text-white ">Borrow</button>

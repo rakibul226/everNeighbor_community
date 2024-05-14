@@ -1,37 +1,35 @@
 "use client"
+
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Allproducts from '../components/Allproducts';
 
-export default function Registration() {
-  const [books, setBooks] = useState([]);
+export default function BuyProduct() {
+  const [products, setProducts] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchedProducts, setSearchedProducts] = useState([]);
   const [searchClicked, setSearchClicked] = useState(false);
 
-  const fetchBooks = async () => {
+  const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3005/user/view-all-product");
-      setBooks(response.data);
+      const response = await axios.get("http://localhost:3005/user/view-all-product"); 
+      setProducts(response.data);
     } catch (error) {
-      console.error("Error fetching books:", error);
+      console.error("Error fetching products:", error);
     }
   };
 
   useEffect(() => {
-    fetchBooks();
+    fetchProducts();
   }, []);
 
   const handleSearch = () => {
     setSearchClicked(true);
-    const filteredBooks = books.filter(book =>
-      book.name.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setSearchedBooks(filteredBooks);
+    setSearchedProducts(filteredProducts);
   };
 
   const handleKeyPress = (e) => {
@@ -40,38 +38,13 @@ export default function Registration() {
     }
   };
 
-  const generateResponsiveSettings = (breakpoints) =>
-    breakpoints.map(({ breakpoint, slidesToShow }) => ({
-      breakpoint,
-      settings: {
-        slidesToShow:1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false,
-      },
-    }));
-  
-    const games = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      responsive: generateResponsiveSettings([
-        { breakpoint: 425, slidesToShow: 1 },
-        { breakpoint: 768, slidesToShow: 2 },
-        { breakpoint: 1024, slidesToShow: 3 },
-        { breakpoint: 1440, slidesToShow: 4 },
-      ]),
-    };
-
   return (
-    <div className="mx-24">
-      <div className="flex justify-end py-4">
+    <div className="px-14">
+      <div className="flex justify-end py-4 pr-3">
         <div className="relative">
           <input
             type="text"
-            placeholder="Search book"
+            placeholder="Search product"
             className="input input-ghost w-full max-w-xs border border-gray-500 pr-10"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -86,17 +59,20 @@ export default function Registration() {
         </div>
       </div>
 
-      <div className="mx-16 max-w-8xl sm:px-6 lg:px-8 pt-7 text-center ">
-        {(searchClicked && inputValue.trim() !== '' && searchedBooks.length === 0) ? (
-          <div>Book not found</div>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 ">
+        {(searchClicked && inputValue.trim() !== '' && searchedProducts.length === 0) ? (
+          <div>Product not found</div>
         ) : (
-            <Slider {...games}>
-            {(searchedBooks.length > 0 ? searchedBooks : books).map((book) => (
-              <Allproducts key={book.product_id} allbook={book} />
-            ))}
-          </Slider>
+          (searchedProducts.length > 0 ? searchedProducts : products).map((product) => (
+            <Allproducts key={product.id} product={product} />
+          ))
         )}
       </div>
     </div>
   );
 }
+
+
+
+
+

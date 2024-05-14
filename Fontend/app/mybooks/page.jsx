@@ -20,15 +20,21 @@ const MyBook = () => {
     fetchBooks();
   }, []);
 
-  return (
-    <div className="">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-20  py-10">
-        {borrowedBooks.map((book) => ( 
-          <ViewBorrowBook key={book.id}book={book} />
-        ))}
-      </div>
+return (
+  <div className="">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-20 py-10 items-center justify-center">
+      {Array.isArray(borrowedBooks) && borrowedBooks.length ? (
+        borrowedBooks.map((book) => ( 
+          <ViewBorrowBook key={book?.id} book={book} />
+        ))
+      ) : (
+        <div className='text-4xl flex items-center justify-center h-screen '>{`You haven't borrowed any book`}</div>
+      )}
     </div>
-  );
-};
+  </div>
+);
+
+}
+
 
 export default MyBook;
