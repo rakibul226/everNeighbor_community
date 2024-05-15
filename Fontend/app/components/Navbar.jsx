@@ -25,8 +25,7 @@ const Navbar = () => {
     <Link href={"/home"} className='text-2xl'>everNeighbor</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 gap-3 text-xl">
-      {/* <li><a>Item 1</a></li> */}
+    <ul className="menu menu-horizontal px-1 gap-8 text-xl">
       <Link href={"/products"}><li>Product</li></Link>
       <Link href={"/myproducts"}><li>myproducts</li></Link>
       <Link href={"/allbooks"}><li>Books</li></Link>

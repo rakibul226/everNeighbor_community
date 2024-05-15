@@ -59,6 +59,7 @@ export default function BuyProduct() {
         </div>
       </div>
 
+      <h1 className='text-3xl pb-3 font-semibold'>Total Products:{products.length}</h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 ">
         {(searchClicked && inputValue.trim() !== '' && searchedProducts.length === 0) ? (
           <div>Product not found</div>

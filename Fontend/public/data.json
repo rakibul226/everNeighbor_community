@@ -7,55 +7,55 @@
             "user_profile_pic": "https://fakeurl.com/johndoe_profile.jpg"
         },
         {
-            "title": "Gourmet Delights: A Journey Through Flavors",
+            "title": "Gourmet Delights: A Journey Through ",
             "date": "2024-05-12",
             "img": "https://fakeurl.com/gourmet_delights.jpg",
             "user_profile_pic": "https://fakeurl.com/janesmith_profile.jpg"
         },
         {
-            "title": "Finding Peace Within: A Meditation Retreat",
+            "title": "Finding Peace Within: A Meditation ",
             "date": "2024-05-14",
             "img": "https://fakeurl.com/meditation_retreat.jpg",
             "user_profile_pic": "https://fakeurl.com/alice_profile.jpg"
         },
         {
-            "title": "Capturing Moments: Travel Photography Expedition",
+            "title": "Capturing Moments: Travel Photography ",
             "date": "2024-05-18",
             "img": "https://fakeurl.com/travel_photography.jpg",
             "user_profile_pic": "https://fakeurl.com/bob_profile.jpg"
         },
         {
-            "title": "Expressing the Soul: Artistic Creations Unleashed",
+            "title": "Expressing the Soul: Artistic Creations ",
             "date": "2024-05-20",
             "img": "https://fakeurl.com/artistic_creations.jpg",
             "user_profile_pic": "https://fakeurl.com/emily_profile.jpg"
         },
         {
-            "title": "Transforming Body and Mind: A Fitness Odyssey",
+            "title": "Transforming Body and Mind: A Fitness ",
             "date": "2024-05-22",
             "img": "https://fakeurl.com/fitness_odyssey.jpg",
             "user_profile_pic": "https://fakeurl.com/david_profile.jpg"
         },
         {
-            "title": "Literary Escapades: Reviews from Bookworms",
+            "title": "Literary Escapades: Reviews from ",
             "date": "2024-05-24",
             "img": "https://fakeurl.com/book_reviews.jpg",
             "user_profile_pic": "https://fakeurl.com/sarah_profile.jpg"
         },
         {
-            "title": "Crafting Wonders: DIY Projects Galore",
+            "title": "Crafting Wonders: DIY Projects ",
             "date": "2024-05-26",
             "img": "https://fakeurl.com/diy_projects.jpg",
             "user_profile_pic": "https://fakeurl.com/michael_profile.jpg"
         },
         {
-            "title": "Tech Talk: Exploring the Latest Technological Trends",
+            "title": "Tech Talk: Exploring the Latest  ",
             "date": "2024-05-28",
             "img": "https://fakeurl.com/tech_trends.jpg",
             "user_profile_pic": "https://fakeurl.com/olivia_profile.jpg"
         },
         {
-            "title": "Fashion Forward: Trends from the Catwalk",
+            "title": "Fashion Forward: Trends from the ",
             "date": "2024-05-30",
             "img": "https://fakeurl.com/fashion_trends.jpg",
             "user_profile_pic": "https://fakeurl.com/william_profile.jpg"
@@ -63,49 +63,49 @@
     ],
     "people_activity": [
         {
-            "name": "John Doe",
+            "name": "Rakibul",
             "img": "https://fakeurl.com/johndoe.jpg",
             "post": "Just returned from an amazing adventure in the Enchanted Forest!",
             "time_ago": "2 hours ago"
         },
         {
-            "name": "Jane Smith",
+            "name": "Jonak",
             "img": "https://fakeurl.com/janesmith.jpg",
             "post": "Indulged in some heavenly dishes today!",
             "time_ago": "3 hours ago"
         },
         {
-            "name": "Alice Johnson",
+            "name": "Zihad",
             "img": "https://fakeurl.com/alice.jpg",
             "post": "Found tranquility in a serene meditation retreat.",
             "time_ago": "5 hours ago"
         },
         {
-            "name": "Bob Brown",
+            "name": "Nafiz",
             "img": "https://fakeurl.com/bob.jpg",
             "post": "Witnessed breathtaking landscapes on my travel photography expedition!",
             "time_ago": "10 hours ago"
         },
         {
-            "name": "Emily Jones",
+            "name": "raKibul",
             "img": "https://fakeurl.com/emily.jpg",
             "post": "Explored culinary wonders that tantalized my taste buds!",
             "time_ago": "12 hours ago"
         },
         {
-            "name": "David White",
+            "name": "Jonak",
             "img": "https://fakeurl.com/david.jpg",
             "post": "Embarked on a journey of self-discovery through meditation.",
             "time_ago": "15 hours ago"
         },
         {
-            "name": "Sarah Davis",
+            "name": "Zihad",
             "img": "https://fakeurl.com/sarah.jpg",
             "post": "Conquered new heights on my latest adventure!",
             "time_ago": "18 hours ago"
         },
         {
-            "name": "Michael Wilson",
+            "name": "Nafizn",
             "img": "https://fakeurl.com/michael.jpg",
             "post": "Discovered gastronomic delights that blew my mind!",
             "time_ago": "20 hours ago"
@@ -123,7 +123,19 @@
             "time_ago": "2 days ago"
         }
     ],
-    "groups": [
+    "actives": [
+        {
+            "name": "Adventurers",
+            "member_count": 500
+        },
+        {
+            "name": "Foodies",
+            "member_count": 350
+        },
+        {
+            "name": "Mindfulness Seekers",
+            "member_count": 200
+        },
         {
             "name": "Adventurers",
             "member_count": 500
@@ -136,5 +148,11 @@
             "name": "Mindfulness Seekers",
             "member_count": 200
         }
+        ,
+        {
+            "name": "Adventurers",
+            "member_count": 500
+        }
+        
     ]
 }

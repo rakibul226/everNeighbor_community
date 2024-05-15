@@ -22,6 +22,7 @@ const MyBook = () => {
 
 return (
   <div className="">
+    
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-20 py-10 items-center justify-center">
       {Array.isArray(borrowedBooks) && borrowedBooks.length ? (
         borrowedBooks.map((book) => ( 

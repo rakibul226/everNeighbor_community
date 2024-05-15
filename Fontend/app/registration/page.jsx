@@ -179,7 +179,7 @@ const Registration = () => {
                 onChange={handleConfirmPasswordChange}
                 placeholder="confirm password"
                 className="input input-bordered w-full"
-                required
+           
               />
 
               <span

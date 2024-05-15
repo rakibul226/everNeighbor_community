@@ -58,6 +58,7 @@ export default function Registration() {
         </div>
       </div>
 
+      <h1 className='text-3xl pb-3 font-semibold'>Total Books:{books.length}</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ">
         {(searchClicked && inputValue.trim() !== '' && searchedBooks.length === 0) ? (
           <div>Book not found</div>
