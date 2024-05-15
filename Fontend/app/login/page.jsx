@@ -9,11 +9,11 @@ const Login = () => {
 
   return <div  className="h-screen"
   style={{
-    backgroundImage: "url(reg.jpg)",
+    backgroundImage: "url(reg2.jpg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
-           <h2 className="text-5xl my-10 m text-center font-bold">Login</h2>
+           <h2 className="text-5xl text-center font-bold">Login</h2>
       <div className="">
         <form  className="md:w-3/4 lg:w-1/3 mx-auto">
           <div className="form-control">

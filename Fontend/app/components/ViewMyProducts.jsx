@@ -3,9 +3,13 @@ import Image from 'next/image';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+
 const ViewMyProducts = ({ product }) => {
     const { name, totalPrice, quantity, product_id } = product;
     const [isUpdating, setIsUpdating] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [updateButtonText, setUpdateButtonText] = useState('Update');
+    const [deleteButtonText, setDeleteButtonText] = useState('Delete');
 
     const handleUpdateQuantity = async () => {
         try {
@@ -31,6 +35,7 @@ const ViewMyProducts = ({ product }) => {
                         });
 
                         setIsUpdating(false);
+                        setUpdateButtonText('Updated');
                     } catch (error) {
                         console.error("Error updating quantity:", error);
                         setIsUpdating(false);
@@ -52,6 +57,40 @@ const ViewMyProducts = ({ product }) => {
         }
     };
 
+    const handleDeleteProduct = async () => {
+        try {
+            const result = await Swal.fire({
+                title: 'Are you sure?',
+                text: 'You won\'t be able to revert this!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            });
+
+            if (result.isConfirmed) {
+                setIsDeleting(true);
+                await axios.delete(`http://localhost:3005/user/cancel-order/${name}`);
+                setIsDeleting(false);
+                setDeleteButtonText('Deleted');
+                Swal.fire({
+                    title: 'Deleted!',
+                    text: 'Product has been deleted.',
+                    icon: 'success'
+                });
+            }
+        } catch (error) {
+            console.error("Error deleting product:", error);
+            setIsDeleting(false);
+            Swal.fire({
+                title: 'Error!',
+                text: `Failed to delete product: ${error.message}`,
+                icon: 'error'
+            });
+        }
+    };
+
     return (
         <div className="flex bg-gray-800 px-3 py-3 ">
             <div className='flex items-center justify-center flex-1'>
@@ -67,11 +106,18 @@ const ViewMyProducts = ({ product }) => {
                     </div>
                     <div className="flex flex-grow justify-center ml-32 items-end">
                         <button
-                            className={`bg-gray-600 py-2 px-3 rounded-sm hover:bg-gray-700 text-white ${isUpdating ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`bg-gray-600 py-2 px-3 rounded-sm hover:bg-gray-700 text-white mr-2 ${isUpdating ? 'opacity-50 cursor-not-allowed' : ''}`}
                             onClick={handleUpdateQuantity}
-                            disabled={isUpdating}
+                            disabled={isUpdating || isDeleting}
                         >
-                            {isUpdating ? 'Updating...' : 'Update'}
+                            {updateButtonText}
+                        </button>
+                        <button
+                            className={`bg-red-600 py-2 px-3 rounded-sm hover:bg-red-700 text-white ${isDeleting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            onClick={handleDeleteProduct}
+                            disabled={isUpdating || isDeleting}
+                        >
+                            {deleteButtonText}
                         </button>
                     </div>
                 </div>
@@ -81,13 +127,3 @@ const ViewMyProducts = ({ product }) => {
 };
 
 export default ViewMyProducts;
-
-
-
-
-
-
-
-
-
-

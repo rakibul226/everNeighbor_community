@@ -3,9 +3,18 @@ import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 import { useState } from "react";
 import Link from "next/link";
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation'
+
+
 
 const Registration = () => {
 
+
+  const router = useRouter()
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 //   const [password, setPassword] = useState('');
@@ -75,30 +84,38 @@ const Registration = () => {
         }
       });
   
-      console.log('Response:', response); // Log the response
+      console.log('Response:', response); 
   
-      if (response.data && response.data.success) {
-        alert('Registration successful');
-        // Redirect to dashboard or another page
+      if (response.data === "Registration successful") {
+        Swal.fire({
+          icon: 'success',
+          title: 'Registration successful',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          router.push('/login');
+        });
       } 
-      alert('success')
+      
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message); // Log the error
+      console.error('Error:', error.response ? error.response.data : error.message); 
       setErrorMessage('Registration failed');
     }
   };
-  
+
+
 
   return (
-    <div className="h-screen"
-      style={{
-        backgroundImage: "url(reg.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+    <div className="h-lvh"
+    style={{
+      backgroundImage: "url(reg.jpg)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
     >
-
-      <div className="flex mt-32">
+      <ToastContainer /> 
+      
+      <div className="flex pt-10">
         <div className="flex-1"></div>
         <div className="flex-auto items-start">
           <form onSubmit={handleRegistration} className="md:w-3/4 lg:w-3/4 mx-auto ">
@@ -136,10 +153,8 @@ const Registration = () => {
                 type={showPassField ? "text" : "password"}
                 name="password"
                 value={password}
-                // onChange={handlePasswordChange}
                 placeholder="password"
                 className="input input-bordered w-full"
-                // onChange={(e) => setPassword(e.target.value)}
                 onChange={(e) => {
                     handlePasswordChange(e);
                     setPassword(e.target.value);
@@ -198,9 +213,9 @@ const Registration = () => {
             </div>
           </form>
           <Link href="/login">
-            <p className="md:w-3/4 lg:w-3/4 mx-auto pt-1 ">
+            <p className="md:w-3/4 lg:w-3/4 mx-auto pt-1 text-gray-600">
               Already have an account.?
-              <span className="text-blue-500 underline hover:text-white"> Login</span>
+              <span className="text-blue-500 underline hover:text-green-600"> Login</span>
             </p>
           </Link>
         </div>

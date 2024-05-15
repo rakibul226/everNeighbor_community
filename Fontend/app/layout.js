@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* You can include your metadata here */}
       </head>
-      <body className={inter.className + ' bg-gray-800'}>
+      <body className={inter.className + ' bg-gray-700'}>
         <Navbar />
         {children}
         <footer className="pt-10">Footer</footer>
